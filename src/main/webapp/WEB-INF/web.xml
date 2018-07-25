@@ -4,4 +4,36 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/webdemo-context.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>springServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <!-- 该配置的作用是初始化组件扫描器，使得注解发挥作用 -->
+            <param-name>contextConfigLocation</param-name>
+            <!-- 此处可以直接设置配置文件路径，为空时则引用context-param中的设置 -->
+            <param-value>/WEB-INF/webdemo-context.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+    <!-- 写jsp时需要 -->
+    <servlet>
+        <servlet-name>jspServlet</servlet-name>
+        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jspServlet</servlet-name>
+        <url-pattern>/WEB-INF/*</url-pattern>
+    </servlet-mapping>
 </web-app>
