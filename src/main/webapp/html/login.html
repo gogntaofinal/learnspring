@@ -4,8 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <link href="signin.css" rel="stylesheet">
+    <!--<link href="signin.css" rel="stylesheet">-->
     <link rel="stylesheet" href="../jslibs/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../jslibs/jquery-easyui-1.4.2/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../jslibs/jquery-easyui-1.4.2/themes/icon.css">
+    <!--<link rel="stylesheet" type="text/css" href="../css/demo.css"> -->
+    <script type="text/javascript" src="../jslibs/jquery-easyui-1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../jslibs/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+    <!--<script type="text/javascript" src="../jslibs/jquery-easyui-1.4.2/jquery.edatagrid.js"></script>-->
+    <script type="text/javascript" src="../jslibs/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
     <title>登陆界面</title>
 </head>
 <style>
@@ -69,17 +76,58 @@
 <form class="form-signin">
     <img class="mb-4" src="" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">工作流管理系统登陆</h1>
-    <label for="inputEmail" class="sr-only">用户名</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-    <label for="inputPassword" class="sr-only">密码</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <label class="sr-only">用户名</label>
+    <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+    <label class="sr-only">密码</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Remember me
         </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="send_to_check()">登陆</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
 </form>
 </body>
+
+<script type="text/javascript">
+    //username, password
+    var user_info = {
+        username: undefined,
+        password: undefined
+    }
+
+    function check_login_form() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        console.log(username + password);
+        if (username == undefined || username == null || username == '') {
+            alert("请填写用户名");
+            return false;
+        }
+        if (password == undefined || password == null || password == '') {
+            alert("请填写密码");
+            return false;
+        }
+        user_info.username = username;
+        user_info.password = password;
+        return true;
+    }
+
+    function send_to_check() {
+        alert("wocao");
+        if (check_login_form()) {
+            $.post("/try/login", {
+                username: user_info.username,
+                password: user_info.password
+            }, function (data) {
+                if (data == true) {
+                    window.location.href("hello.html");
+                } else {
+                    alert("用户名或者密码输入错误！！！");
+                }
+            },'json');
+        }
+    }
+</script>
 </html>
