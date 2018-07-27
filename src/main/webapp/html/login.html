@@ -75,7 +75,7 @@
 <body class="text-center" style="background-color: bisque">
 <form class="form-signin">
     <img class="mb-4" src="" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">工作流管理系统登陆</h1>
+    <h1 class="h3 mb-3 font-weight-normal">随便一个什么系统</h1>
     <label class="sr-only">用户名</label>
     <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
     <label class="sr-only">密码</label>
@@ -115,14 +115,16 @@
     }
 
     function send_to_check() {
-        alert("wocao");
         if (check_login_form()) {
+            console.log("user_info"+ user_info);
             $.post("/try/login", {
-                username: user_info.username,
-                password: user_info.password
+                "username": user_info.username,
+                "password": user_info.password
             }, function (data) {
+                console.log(data);
                 if (data == true) {
-                    window.location.href("hello.html");
+                    alert("hhhh");
+                    window.location.href = "hello.html";
                 } else {
                     alert("用户名或者密码输入错误！！！");
                 }

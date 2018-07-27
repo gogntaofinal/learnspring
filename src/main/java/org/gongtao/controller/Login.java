@@ -11,9 +11,9 @@ public class Login {
      * @param password 返回的model对象.
      * @return a random string.
      */
-    @RequestMapping(value = {"/login"}, method = {RequestMethod.POST})
+    @RequestMapping(value = "/login", method = {RequestMethod.POST})
     @ResponseBody
-    public final Boolean loginAction(String username, String password) {
+    public final boolean loginAction(String username, String password) throws Exception{
         if(username.equals("root") && password.equals("root")) {
             return true;
         }else{
