@@ -384,6 +384,76 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andUsertagIsNull() {
+            addCriterion("usertag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagIsNotNull() {
+            addCriterion("usertag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagEqualTo(String value) {
+            addCriterion("usertag =", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagNotEqualTo(String value) {
+            addCriterion("usertag <>", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagGreaterThan(String value) {
+            addCriterion("usertag >", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagGreaterThanOrEqualTo(String value) {
+            addCriterion("usertag >=", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagLessThan(String value) {
+            addCriterion("usertag <", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagLessThanOrEqualTo(String value) {
+            addCriterion("usertag <=", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagLike(String value) {
+            addCriterion("usertag like", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagNotLike(String value) {
+            addCriterion("usertag not like", value, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagIn(List<String> values) {
+            addCriterion("usertag in", values, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagNotIn(List<String> values) {
+            addCriterion("usertag not in", values, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagBetween(String value1, String value2) {
+            addCriterion("usertag between", value1, value2, "usertag");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertagNotBetween(String value1, String value2) {
+            addCriterion("usertag not between", value1, value2, "usertag");
+            return (Criteria) this;
+        }
+
         public Criteria andUsernameIsNull() {
             addCriterion("username is null");
             return (Criteria) this;
