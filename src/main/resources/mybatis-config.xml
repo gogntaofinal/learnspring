@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 也可以通过文件的方式设置xml的属性，也可以放在其他路径 -->
+    <properties resource="mysql.properties"></properties>
+    <!-- 相当于给类另外取一个别名，可以简化类名书写 -->
+    <typeAliases>
+        <typeAlias alias="User" type="org.gongtao.bean.User"/>
+        <typeAlias alias="Department" type="org.gongtao.bean.Department"/>
+    </typeAliases>
+    <environments default="dev_master">
+        <!-- 支持配置多个数据库连接 -->
+        <environment id="dev_master">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${master.url}"/>
+                <property name="username" value="${master.username}"/>
+                <property name="password" value="${master.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!-- 里面是表名 -->
+        <mapper resource="org/gongtao/mapper/UserMapper/xml"/>
+        <mapper resource="org/gongtao/mapper/DepartmentMapper/xml"/>
+    </mappers>
+</configuration>

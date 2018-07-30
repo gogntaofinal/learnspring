@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+                                        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 数据库配置文件 -->
+    <properties resource="mysql.properties" />
+     
+    <!-- 用mvn时，直接增加mysql驱动的依赖，注意依赖要放在plugin里面，可以省去下面的配置 -->
+    <!-- classPathEntry  location="D:\TPSSAPP\javadev\demoapp\lib\mysql-connector-java-5.1.38.jar"/ -->  
+    <context id="context1">
+         <property name="javaFileEncoding" value="UTF-8" />
+         
+         <property name="autoDelimitKeywords" value="true" />
+         <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+         
+         <!-- 注释生成规则 -->
+         <commentGenerator>
+             <property name="suppressAllComments" value="false" />
+             <property name="suppressDate" value="true" />
+         </commentGenerator>
+         
+         <!-- 数据库连接 -->
+         <jdbcConnection driverClass="${driver}" connectionURL="${master.url}" userId="${master.username}" password="${master.password}" />
+ 
+         <!-- 数据库的生成配置,注意这里的目录配置 -->
+         <javaModelGenerator targetPackage="org.gongtao.bean" targetProject="src/main/java" />
+         <sqlMapGenerator targetPackage="org.gongtao.mapper" targetProject="src/main/resources" />
+         <javaClientGenerator targetPackage="org.gongtao.mapper" targetProject="src/main/java" type="XMLMAPPER" />
+         
+         <!-- 以上部分配置固定，无需改动，此处往下开始项目设置 -->
+         
+         <!-- t_user表 -->
+         <!-- <table tableName="t_user" domainObjectName="User"> -->
+             <!-- <property name="useActualColumnNames" value="true" /> -->
+             <!-- generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" / -->
+         <!-- </table> -->
+         <!-- t_city表 -->
+         <!-- <table tableName="t_city" domainObjectName="City"> -->
+             <!-- <property name="useActualColumnNames" value="true" /> -->
+             <!-- generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" / -->
+         <!-- </table> -->
+         <table tableName="t_user" domainObjectName="User">
+            <property name = "useActualColumnNames" value="true" />
+         </table>
+        <table tableName="t_department" domainObjectName="Department">
+            <property name = "useActualColumnNames" value="true" />
+        </table>
+    </context>
+</generatorConfiguration>
