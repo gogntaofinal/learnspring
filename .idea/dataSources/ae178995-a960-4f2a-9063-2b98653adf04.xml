@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="workflow@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.9">
+    <root id="1">
+      <ServerVersion>5.5.20</ServerVersion>
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <schema id="2" parent="1" name="information_schema"/>
+    <schema id="3" parent="1" name="mysql"/>
+    <schema id="4" parent="1" name="performance_schema"/>
+    <schema id="5" parent="1" name="test"/>
+    <schema id="6" parent="1" name="workflow">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="7" parent="6" name="t_department"/>
+    <table id="8" parent="6" name="t_user"/>
+    <column id="9" parent="7" name="departmentid">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="10" parent="7" name="departmentname">
+      <Position>2</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="11" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>departmentid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="12" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>departmentid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="13" parent="8" name="userid">
+      <Position>1</Position>
+      <Comment>用户id</Comment>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="8" name="departmentid">
+      <Position>2</Position>
+      <Comment>用户所在部门</Comment>
+      <DataType>INT(10)|4s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="15" parent="8" name="role">
+      <Position>3</Position>
+      <Comment>用户在部门里的角色</Comment>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="16" parent="8" name="usertag">
+      <Position>4</Position>
+      <Comment>用户名称</Comment>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="17" parent="8" name="username">
+      <Position>5</Position>
+      <Comment>用户登录名称</Comment>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="18" parent="8" name="password">
+      <Position>6</Position>
+      <Comment>密码</Comment>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="19" parent="8" name="level">
+      <Position>7</Position>
+      <Comment>用户权限: 00：总负责人，01：部分负责人，02：普通员工</Comment>
+      <DataType>CHAR(2)|1s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="20" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="21" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userid</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
