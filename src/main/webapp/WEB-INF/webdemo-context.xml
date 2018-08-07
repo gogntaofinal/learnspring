@@ -39,13 +39,12 @@
     <!--file. This config file could, in turn, contain &ltmapper&gt-->
     <!--elements that point to the correct mapper xml files.-->
     <!--&ndash;&gt;-->
-     <!--<property name="mapperLocations" value="classpath:org/gongtao/bean/*.xml" />-->
-    <!--<property name="mapperLocations">-->
-        <!--<array>-->
-            <!--<value>classpath:org/gongtao/mapper/*.xml</value>-->
-            <!--<value>classpath:org/gongtao/bean/*.xml</value>-->
-        <!--</array>-->
-    <!--</property>-->
+     <!--<property name="mapperLocations" value="classpath:org/gongtao/mapper/*.xml" />-->
+    <property name="mapperLocations">
+        <array>
+            <value>classpath:org/gongtao/mapper/*.xml</value>
+        </array>
+    </property>
 
     </bean>
     <!-- 用于注解 -->
@@ -53,20 +52,30 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 
     <!-- 配置映射对象 -->
-    <!--<bean id="deviceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-    <!--<property name="mapperInterface" value="org.gongtao.bean.DeviceMapper" />-->
-    <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
-    <!--</bean>-->
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.gongtao.mapper.UserMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 
-    <!-- MyBatis-Spring will create a proxy for the userMapper bean -->
+    <bean id="departmentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.gongtao.mapper.DepartmentMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+     <!--MyBatis-Spring will create a proxy for the userMapper bean -->
     <!--<bean id="deviceService" class="org.gongtao.service.HelloDeviceImpl">-->
         <!--&lt;!&ndash; constructor-arg ref="cityMapper" / &ndash;&gt;-->
         <!--<property name="deviceMapper" ref="deviceMapper"/>-->
     <!--</bean>-->
-
+    <!--<bean id="loginService" class = "org.gongtao.serviceImpl.LoginServiceImpl">-->
+        <!--<property name="" ref="loginService"></property>-->
+    <!--</bean>-->
+    <bean id="loginService" class="org.gongtao.serviceImpl.LoginServiceImpl">
+    </bean>
     <!-- 组件扫描器扫描这一层组要扫描处理器 -->
     <!-- 容易出错的地方是base-package配错，注解不发生作用 -->
-    <context:component-scan base-package="org.gongtao.controller"></context:component-scan>
+    <context:component-scan base-package="org.gongtao.*"></context:component-scan>
+    <!--<context:component-scan base-package="org.gongtao.serviceImpl"></context:component-scan>-->
 
     <!-- 配置注解的映射器和适配器以及其他配置 -->
     <mvc:annotation-driven></mvc:annotation-driven>

@@ -3,6 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="SLF4J"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
     <!-- 也可以通过文件的方式设置xml的属性，也可以放在其他路径 -->
     <properties resource="mysql.properties"></properties>
     <!-- 相当于给类另外取一个别名，可以简化类名书写 -->
@@ -25,7 +30,7 @@
 
     <mappers>
         <!-- 里面是表名 -->
-        <mapper resource="org/gongtao/mapper/UserMapper/xml"/>
+        <mapper resource="org.gongtao.mapper.UserMapper.xml"/>
         <mapper resource="org/gongtao/mapper/DepartmentMapper/xml"/>
     </mappers>
 </configuration>
