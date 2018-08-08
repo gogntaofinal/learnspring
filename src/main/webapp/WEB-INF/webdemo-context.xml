@@ -27,6 +27,10 @@
         <property name="username" value="${master.username}"/>
         <property name="password" value="${master.password}"/>
     </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/html/"></property>
+        <property name="suffix" value=".html"></property>
+    </bean>
     <!--&lt;!&ndash; 配置sql会话工程 &ndash;&gt;-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
@@ -57,6 +61,11 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
+    <bean id="loginMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.gongtao.mapper.LoginMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
     <bean id="departmentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="org.gongtao.mapper.DepartmentMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
@@ -71,6 +80,7 @@
         <!--<property name="" ref="loginService"></property>-->
     <!--</bean>-->
     <bean id="loginService" class="org.gongtao.serviceImpl.LoginServiceImpl">
+
     </bean>
     <!-- 组件扫描器扫描这一层组要扫描处理器 -->
     <!-- 容易出错的地方是base-package配错，注解不发生作用 -->

@@ -23,7 +23,6 @@ public class Login {
     @RequestMapping(value = "/login", method = {RequestMethod.POST})
     @ResponseBody
     public final boolean loginAction(String username, String password) throws Exception{
-        System.out.println(username + password);
         return loginService.login(username, password);
     }
 }

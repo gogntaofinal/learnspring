@@ -1,0 +1,222 @@
+<!DOCTYPE >
+<html>
+<head>
+    <title>开放式系统办公</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../jslibs/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../jslibs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../jslibs/bootstrap-3.3.7-dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../jslibs/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/notepad.ico" type="image/x-icon">
+    <style>
+        /*
+     * Base structure
+     */
+
+        /* Move down content because we have a fixed navbar that is 50px tall */
+
+        body {
+            padding-top: 50px;
+        }
+
+        /*
+     * Global add-ons
+     */
+
+        .sub-header {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /*
+     * Top navigation
+     * Hide default border to remove 1px line.
+     */
+
+        .navbar-fixed-top {
+            border: 0;
+        }
+
+        /*
+     * Sidebar
+     */
+
+        /* Hide for mobile, show later */
+
+        .sidebar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 51px;
+                bottom: 0;
+                left: 0;
+                z-index: 1000;
+                display: block;
+                padding: 20px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                /* Scrollable contents if viewport is shorter than content. */
+                background-color: #f5f5f5;
+                border-right: 1px solid #eee;
+            }
+        }
+
+        /* Sidebar navigation */
+
+        .nav-sidebar {
+            margin-right: -21px;
+            /* 20px padding + 1px border */
+            margin-bottom: 20px;
+            margin-left: -20px;
+        }
+
+        .nav-sidebar>li>a {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .nav-sidebar>.active>a,
+        .nav-sidebar>.active>a:hover,
+        .nav-sidebar>.active>a:focus {
+            color: #fff;
+            background-color: #428bca;
+        }
+
+        /*
+     * Main content
+     */
+
+        .main {
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .main {
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+        }
+
+        .main .page-header {
+            margin-top: 0;
+        }
+
+        .projectname {
+            font-family: "Microsoft Yahei";
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function change(obj) {
+            obj.attr({ class: "active sr-only" });
+        }
+    </script>
+</head>
+
+<body>
+<!--菜单栏-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand projectname" href="#" id='projectname'>随便一个什么系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Settings</a>
+                </li>
+                <li>
+                    <a href="#">Profile</a>
+                </li>
+                <li>
+                    <a href="#">Help</a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</nav>
+<!--菜单栏end-->
+
+<div class="container-fluid">
+    <div class="row">
+        <!--左侧边栏-->
+        <!--<span class="sr-only">(current)</span>-->
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul id='left-side' class="nav nav-sidebar">
+                <!--./main/layershow.html-->
+                <li id="ei">
+                    <a href="http://localhost/UITest/jslib/openlayer-4.2.0/examples" target="data_content" id="ei" onclick="change(this)">设置流程</a>
+                </li>
+                <li id="first">
+                    <a href="../html/testExcel.html" target="data_content" id="first" onclick="change(this)">我的待办</a>
+                </li>
+                <li id="zero">
+                    <a href="http://localhost/import/" target="data_content" id="zero" onclick="change(this)">我的发起</a>
+                </li>
+                <li id="nine">
+                    <a href="http://localhost/LJF_demo" target="data_content" id="nine" onclick="change(this)">我的已办</a>
+                </li>
+                <li id="six">
+                    <a href="manage_person.html" target="data_content" id="six" onclick="change(this)">人员管理</a>
+                </li>
+                <li id="second">
+                    <a href="http://fanyi.baidu.com/?aldtype=16047#auto/zh" target="data_content" id="second" onclick="change(this)">百度翻译</a>
+                </li>
+                <li id="seven">
+                    <a href="https://www.baidu.com/" target="data_content" id="seven" onclick="change(this)">百度搜索</a>
+                </li>
+                <li id="third">
+                    <a href="http://localhost/import/" target="data_content" id="third" onclick="change(this)">数据库助手</a>
+                </li>
+                <li id="forth">
+                    <a href="http://localhost/UITest/wf_test/set_wf.html" target="data_content" id="forth" onclick="change(this)">wf配置</a>
+                </li>
+            </ul>
+        </div>
+        <!--左侧边栏end-->
+        <!--中间内容-->
+        <div class="col-sm-9 col-sm-offset-30 col-md-10 col-md-offset-2 main">
+            <!--<iframe src="../mypage/test1.html" width='100%' height="1000px"></iframe>-->
+            <iframe id="data_content" name="data_content" frameBorder="0" scrolling="yes" src="hello.html" width="100%" height="1000">
+            </iframe>
+        </div>
+        <!--中间内容end-->
+    </div>
+</div>
+
+
+<script>
+    //该函数实现左侧菜单栏聚焦
+    function change(obj) {
+        // obj.attr({class:"active sr-only"});
+        // obj.style.class = "active";
+        $("#left-side li").removeAttr("class");
+        // console.log($("#left-side li"));
+        var cur = "#left-side li#" + obj.id;
+        $(cur).attr({ class: "active" });
+    }
+</script>
+<script type="text/javascript" src="../jslibs/jquery-easyui-1.4.2/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="../jslibs/jquery-easyui-1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="../jslibs/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<!--<script src="../js/bootstrap/js/bootstrap.min.js"></script>-->
+</body>
+</html>

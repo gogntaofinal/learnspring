@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>人员管理</title>
+    <link rel="stylesheet" type="text/css" href="/jslibs/jquery-easyui-1.4.2/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/jslibs/jquery-easyui-1.4.2/themes/icon.css">
+    <script type="text/javascript" src="/jslibs/jquery-easyui-1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/jslibs/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div id="containor">
+        <div id = "people" class="easyui-treegrid" style="height:300px;width:800px"></div>
+        <div id = "add_person" class = "easyui-window"></div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    $("#people").treegrid({
+        url: "/try/get_all_user",
+        method: "post",
+        rownumber: true,
+        idField: "id",
+        treeField: "name"
+    })
+</script>
+</html>

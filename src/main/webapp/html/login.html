@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <!--<link href="signin.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="../jslibs/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../jslibs/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../jslibs/jquery-easyui-1.4.2/themes/bootstrap/easyui.css">
     <link rel="stylesheet" type="text/css" href="../jslibs/jquery-easyui-1.4.2/themes/icon.css">
     <!--<link rel="stylesheet" type="text/css" href="../css/demo.css"> -->
@@ -73,13 +73,13 @@
 </style>
 
 <body class="text-center" style="background-color: bisque">
-<form class="form-signin">
+<div id = 'hello' class="form-signin">
     <img class="mb-4" src="" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">随便一个什么系统</h1>
     <label class="sr-only">用户名</label>
-    <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+    <input type="text" id="username" name = "username" class="form-control" placeholder="Username" required autofocus>
     <label class="sr-only">密码</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" required>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Remember me
@@ -87,7 +87,7 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="send_to_check()">登陆</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-</form>
+</div>
 </body>
 
 <script type="text/javascript">
@@ -118,13 +118,13 @@
         if (check_login_form()) {
             console.log("user_info"+ user_info);
             $.post("/try/login", {
-                "username": user_info.username,
-                "password": user_info.password
+                "username": "root",
+                "password": "root"
             }, function (data) {
+                $.messager.alert("警告", data);
                 console.log(data);
                 if (data == true) {
-                    alert("hhhh");
-                    window.location.href = "hello.html";
+                    window.location.href = "main_frame.html";
                 } else {
                     alert("用户名或者密码输入错误！！！");
                 }
